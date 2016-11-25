@@ -1,5 +1,5 @@
 var moment = require('moment'),
-	colors = require('colors/safe');
+	colors = require('colors');
 
 var colorsArr = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'];
 
@@ -22,7 +22,7 @@ module.exports = function (options) {
 
 		time ? reports.push(moment().format(timeFormat)) : null;
 
-		print(reports.length ? [['(', reports.join(' '), ')'].join(''), args].join(' ') : args);
+		print(reports.join(' ') || null, args);
 	}
 }
 
@@ -44,12 +44,12 @@ function getRandomInt(min, max) {
 function printColor(color) {
 	var _color = false;
 
-	if(color !== false) {
-		_color = color || colorsArr[getRandomInt(0, colorsArr.length - 1)];
+	if(color) {
+		_color = (color === 'random') ? colorsArr[getRandomInt(0, colorsArr.length - 1)] : color;
 		_color = colorsArr.indexOf(_color) > -1 ? _color : false;
 	}
 
-	return function (str) {
-		_color ? console.log(colors[_color](str)) : console.log(str);
+	return function (reports, str) {
+		_color ? console.log(reports.grey, str[_color]) : console.log(reports.grey, str);
 	}
 }
