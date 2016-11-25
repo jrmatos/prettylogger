@@ -2,9 +2,9 @@
 
 The Node.js logger library you were looking for
 
-## Install
+### Install
 
 `npm install prettylogger`
 
-
+--
 MIT Licensed
