@@ -18,8 +18,11 @@ logger('your', 'log', 'comes', 'here'); // it gets the same console.log's argume
 ### Options
 
 module (String)
+
 color (String)
+
 time (Boolean)
+
 timeFormat (String)
 
 --
