@@ -1,6 +1,6 @@
 # Pretty Logger
 
-The Node.js logger library you were looking for
+Just another Node.js fancy logger library.
 
 ### Install
 
